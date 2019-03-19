@@ -1,35 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import './Movie.css';
 
 
-class Movie extends Component {
-
-	static propTypes = {
-		title: PropTypes.string.isRequired,
-		coverImage: PropTypes.string
-	}
-
-	render() {
-		return (
-			<div>
-				<BookCover coverImage={this.props.coverImage}/>
-				<h1>{this.props.title}</h1>
-			</div>
-		);
-	}
+function Movie ({title, coverImage}) {
+	return (
+	<div>
+		<BookCover coverImage={coverImage} />
+		<h1>{title}</h1>
+	</div>)
 }
 
-class BookCover extends Component {
-	static porpTypes = {
-		coverImage: PropTypes.string.isRequired
-	}
+function BookCover({coverImage}) {
 
-	render() {
-		return (
-			<img src={this.props.coverImage}/>
-		);
-	}
+	return <img src={coverImage} />
+}
+
+Movie.propTypes = {
+	title: PropTypes.string.isRequired,
+	coverImage: PropTypes.string.isRequired
 }
 
 export default Movie;
