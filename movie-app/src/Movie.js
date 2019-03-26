@@ -3,22 +3,22 @@ import PropTypes from 'prop-types';
 import './Movie.css';
 
 
-function Movie ({title, coverImage}) {
+function Movie ({title, large_cover_image}) {
 	return (
 	<div>
-		<BookCover coverImage={coverImage} />
+		<BookCover large_cover_image={large_cover_image} />
 		<h1>{title}</h1>
 	</div>)
 }
 
-function BookCover({coverImage}) {
+function BookCover({large_cover_image}) {
 
-	return <img src={coverImage} />
+	return <img src={large_cover_image} />
 }
 
 Movie.propTypes = {
 	title: PropTypes.string.isRequired,
-	coverImage: PropTypes.string.isRequired
+	large_cover_image: PropTypes.string.isRequired
 }
 
 export default Movie;
