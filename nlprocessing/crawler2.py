@@ -1,4 +1,4 @@
-from konlpy.tag import Mecab
+from konlpy.tag import okt
 from collections import Counter
 
 
@@ -12,12 +12,9 @@ def validator(text):
 
 
 def get_tags(text, ntags=50):
-    spliter = Mecab()
-    # konlpy의 Twitter객체
+    spliter = Okt()
     nouns = spliter.nouns(text)
-    # nouns 함수를 통해서 text에서 명사만 분리/추출
     count = Counter(nouns)
-    # Counter객체를 생성하고 참조변수 nouns할당
     return_list = []  # 명사 빈도수 저장할 변수
     for n, c in count.most_common(ntags):
         if len(n) > 1 and validator(n):
@@ -30,8 +27,8 @@ def get_tags(text, ntags=50):
 
 
 def main():
-    text_file_name = "out.txt"
-    # 분석할 파일Test
+    file = open("crawled_data.json", "rw")
+    # 분석할 파일 Test
     noun_count = 2000
     # 최대 많은 빈도수 부터 20개 명사 추출
     output_file_name = "count.txt"
