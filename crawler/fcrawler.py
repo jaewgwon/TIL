@@ -10,8 +10,8 @@ driver.implicitly_wait(3)
 #J-FAIR 기업정보 크롤러
 #자신의 ID와 PW를 입력하세요.
 ################################
-user_id = $ID
-user_pw = $PASSWORD
+user_id = ''
+user_pw = ''
 
 driver.get('https://job.sesoc.global/fap/user/user_login')
 driver.find_element_by_id('user_id').send_keys(user_id)
